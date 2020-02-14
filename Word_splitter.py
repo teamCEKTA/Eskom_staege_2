@@ -21,7 +21,7 @@ df=pd.read_csv(url) #using pandas to read the contents of the url
 def word_spliter(df):
     df['temp column']=df['Tweets'].str.lower() #temporal column that contains the tweets in lowercase
     df['Split tweets']=df['temp column'].str.rsplit() #slitting the words of temporal column into a new column 'Split tweets'
-    df = df.drop('temp column', 1)  #delete temporal column
+    df = df.drop('temp column', 1)  #delete temporal column.
 
     return df
 
