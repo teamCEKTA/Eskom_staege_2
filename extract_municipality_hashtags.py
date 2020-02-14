@@ -1,4 +1,6 @@
 def extract_municipality_hashtags(df):
+    """takes in a pandas dataframe and returns the same dataframe which is modified to extract the municipality from a tweet using the given dictonary into a new column in the same dataframe and hashtag from a tweet into a new column in the same data frame 
+with the column headers being "municipality" & "hashtags" respectively and for those tweets which don't have the either a municipality nor a hashtag, np.nan is filled."""
     df['hashtags'] = 0
     df['municipality'] = 0
 
