@@ -1,5 +1,5 @@
 def five_num_summary(items):
-    
+    """Takes a list of items and returns a dictionary of five number summary"""
     percentile = np.percentile(items, [0,25,50,75,100]) #A list of percentiles
     Min = round(percentile[0],2)
     Q1  = round(percentile[1],2)
