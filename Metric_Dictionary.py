@@ -1,5 +1,5 @@
 def dictionary_of_metrics(items):
-    
+    """Takes a list of items and returns a dictionary of summary statistics"""
     n   = len(items)
     Ave = round(np.mean(items),2)
     Med = round(np.median(items),2)
