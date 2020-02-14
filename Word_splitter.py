@@ -7,7 +7,9 @@
 import pandas as pd
 import numpy as np
 url = 'https://raw.githubusercontent.com/RidhaMoosa/eskom_data-/master/twitter_nov_2019.csv' 
-
+"""This function takes in a twitter database .The data base originally has two column ,a 'Tweets' and 'Date' column and returns the data
+base with a new "Split Tweets" column .This new column contains the tweets but sentences are returns as a list of the separate words
+and all letters are lowercase"""
 
 # In[46]:
 
