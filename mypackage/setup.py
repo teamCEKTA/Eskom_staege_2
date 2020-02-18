@@ -10,5 +10,5 @@ setup(
     install_requires=['numpy','pandas'],
     url='https://github.com/teamCEKTA/Eskom_staege_2',
     author='Team_2',
-    author_email='keithtakarinda@!gmail.com'
+    author_email='eltonmaepa7@gmail.com'
 )
