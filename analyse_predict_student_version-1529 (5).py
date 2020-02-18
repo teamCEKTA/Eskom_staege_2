@@ -135,7 +135,7 @@ def dictionary_of_metrics(items):
 ### END FUNCTION
 
 
-# In[6]:
+# In[ ]:
 
 
 dictionary_of_metrics(gauteng)
@@ -268,27 +268,28 @@ def extract_municipality_hashtags(df):
     """
     
     #creating 'hashtag' and 'municipality' columns with zeros to later replace the zero's
-    df['hashtags'] = 0
     df['municipality'] = 0
+    df['hashtags'] = 0
     
     #Iterating over the columns and rows of the twitter column
     for index,row in df.iterrows():
         splt = row['Tweets'].split()
         for i in splt:
-            #extracting all hashtags and inserting them as a string in the hashtag column
-            if i.startswith("#"): 
-                idx = index
-                df['hashtags'][idx] = [i for i in splt if i.startswith("#")]
             #extracting all key values that match the keywords in the dictionary, to populate the municipality column
             if i in mun_dict:
                 idx = index
                 df['municipality'][idx] = mun_dict[i]
+        #extracting all hashtags and inserting them as a string in the hashtag column
+            if i.startswith("#"): 
+                idx = index
+                df['hashtags'][idx] = [i.lower() for i in splt if i.startswith("#")]
+            
+        if df['municipality'][index] == 0:
+            df['municipality'][index] = np.nan
         #populating the rest of the columns with nan whereever there isn't a hashtag or municipality keyword
         if df['hashtags'][index] == 0:
             df['hashtags'][index] = np.nan
             
-        if df['municipality'][index] == 0:
-            df['municipality'][index] = np.nan
     return df
 
 ### END FUNCTION
@@ -418,7 +419,7 @@ def number_of_tweets_per_day(df):
     
     df['Date'] = pd.to_datetime(df['Date']) #converts date column to datetime
     df['Date'] = df['Date'].dt.date #extract only the date part of the datetime in the date column                         
-    twitter_cnt=twitter_df.groupby('Date').count() #group the dataframe by unique dates and calculate the number of tweets in each day
+    twitter_cnt=df.groupby('Date').count() #group the dataframe by unique dates and calculate the number of tweets in each day
     twitter_cnt.reset_index(inplace = True) #reset index
     twitter_cnt.set_index('Date', inplace = True)  #set date column as index 
     
@@ -449,17 +450,14 @@ number_of_tweets_per_day(twitter_df.copy())
 
 ### START FUNCTION
 def word_splitter(df):
-    """This function takes in a twitter database  .The database originally has two column ,a 'Tweets' and 'Date' column, and returns the             data
-ase  ith a new "Split Tweets" column. This new column contains the tweets as a list of tseparate words  nd all letwordre lowercase"
-    ""
-
+    """This function takes in a twitter database.The database originally has two column ,a 'Tweets' and 'Date' column, and returns the database with a new "Split Tweets" column. This new column contains the tweets as a list of separate words and all words are lowercase
+    """
  
-      df['temp column']= d f['Tweets'].str.lower() #temporal column that contains the tweets in lowercase
-    df['Split tweets']= d f['temp column'].str.rsplit() #slitting the words of temporal column into a new column 'Split tweets'
-    df = df.drop('temp column', 1)  #dlete temporal column
+    df['temp_column']= df['Tweets'].str.lower() #temporary column that contains the tweets in lowercase
+    df['Split Tweets']= df['temp_column'].str.rsplit() #splitting the words of temporal column into a new column 'Split tweets'
+    df = df.drop('temp_column', 1) #delete temporal column
 
     return df
-
 ### END FUNCTION
 
 
@@ -594,99 +592,6 @@ def stop_words_remover(df):
 
 stop_words_remover(twitter_df.copy())
 
-
-# _**Expected Output**_:
-# 
-# Specific rows:
-# 
-# ```python
-# stop_words_remover(twitter_df.copy()).loc[0, "Without Stop Words"] == ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
-# stop_words_remover(twitter_df.copy()).loc[100, "Without Stop Words"] == ['#eskomnorthwest', '#mediastatement', ':', 'notice', 'supply', 'interruption', 'lichtenburg', 'area', 'https://t.co/7hfwvxllit']
-# ```
-# 
-# Whole table:
-# ```python
-# stop_words_remover(twitter_df.copy())
-# ```
-# 
-# > <table class="dataframe" border="1">
-#   <thead>
-#     <tr style="text-align: right;">
-#       <th></th>
-#       <th>Tweets</th>
-#       <th>Date</th>
-#       <th>Without Stop Words</th>
-#     </tr>
-#   </thead>
-#   <tbody>
-#     <tr>
-#       <th>0</th>
-#       <td>@BongaDlulane Please send an email to mediades...</td>
-#       <td>2019-11-29 12:50:54</td>
-#       <td>[@bongadlulane, send, email, mediadesk@eskom.c...</td>
-#     </tr>
-#     <tr>
-#       <th>1</th>
-#       <td>@saucy_mamiie Pls log a call on 0860037566</td>
-#       <td>2019-11-29 12:46:53</td>
-#       <td>[@saucy_mamiie, pls, log, 0860037566]</td>
-#     </tr>
-#     <tr>
-#       <th>2</th>
-#       <td>@BongaDlulane Query escalated to media desk.</td>
-#       <td>2019-11-29 12:46:10</td>
-#       <td>[@bongadlulane, query, escalated, media, desk.]</td>
-#     </tr>
-#     <tr>
-#       <th>3</th>
-#       <td>Before leaving the office this afternoon, head...</td>
-#       <td>2019-11-29 12:33:36</td>
-#       <td>[leaving, office, afternoon,, heading, weekend...</td>
-#     </tr>
-#     <tr>
-#       <th>4</th>
-#       <td>#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...</td>
-#       <td>2019-11-29 12:17:43</td>
-#       <td>[#eskomfreestate, #mediastatement, :, eskom, s...</td>
-#     </tr>
-#     <tr>
-#       <th>...</th>
-#       <td>...</td>
-#       <td>...</td>
-#       <td>...</td>
-#     </tr>
-#     <tr>
-#       <th>195</th>
-#       <td>Eskom's Visitors Centresâ€™ facilities include i...</td>
-#       <td>2019-11-20 10:29:07</td>
-#       <td>[eskom's, visitors, centresâ€™, facilities, incl...</td>
-#     </tr>
-#     <tr>
-#       <th>196</th>
-#       <td>#Eskom connected 400 houses and in the process...</td>
-#       <td>2019-11-20 10:25:20</td>
-#       <td>[#eskom, connected, 400, houses, process, conn...</td>
-#     </tr>
-#     <tr>
-#       <th>197</th>
-#       <td>@ArthurGodbeer Is the power restored as yet?</td>
-#       <td>2019-11-20 10:07:59</td>
-#       <td>[@arthurgodbeer, power, restored, yet?]</td>
-#     </tr>
-#     <tr>
-#       <th>198</th>
-#       <td>@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...</td>
-#       <td>2019-11-20 10:07:41</td>
-#       <td>[@muthambipaulina, @sabcnewsonline, @iol, @enc...</td>
-#     </tr>
-#     <tr>
-#       <th>199</th>
-#       <td>RT @GP_DHS: The @GautengProvince made a commit...</td>
-#       <td>2019-11-20 10:00:09</td>
-#       <td>[rt, @gp_dhs:, @gautengprovince, commitment, e...</td>
-#     </tr>
-#   </tbody>
-# </table>
 
 # In[ ]:
 
