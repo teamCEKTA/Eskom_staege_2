@@ -1,9 +1,0 @@
-README.md
-setup.py
-Team_2_Predict.egg-info/PKG-INFO
-Team_2_Predict.egg-info/SOURCES.txt
-Team_2_Predict.egg-info/dependency_links.txt
-Team_2_Predict.egg-info/requires.txt
-Team_2_Predict.egg-info/top_level.txt
-mypackage/__init__.py
-mypackage/myModule.py
