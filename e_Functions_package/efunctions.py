@@ -1,6 +1,6 @@
 def dictionary_of_metrics(items):
     """Takes a list of items and returns a dictionary of the summary statistics"""
-    
+    import numpy as np
     n = len(items)
     average = round(np.mean(items), 2)
     median = round(np.median(items), 2)
@@ -14,7 +14,6 @@ def dictionary_of_metrics(items):
 
 def five_num_summary(items):
     import numpy as np
-    import pandas as pd
     """Takes a list of items and returns a dictionary of the five number summary"""
     
     percentile = np.percentile(items, [0,25,50,75,100]) #A list of percentiles
@@ -47,7 +46,8 @@ def extract_municipality_hashtags(df):
     The column headers of the new columns are "municipality" & "hashtags"
     respectively.
     """
-    
+    import numpy as np
+    import pandas as pd
     #creating 'hashtag' and 'municipality' columns with zeros to later replace the zero's
     df['municipality'] = 0
     df['hashtags'] = 0
