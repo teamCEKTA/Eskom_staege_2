@@ -2,7 +2,7 @@ def dictionary_of_metrics(items):
     
     """Takes a list of items and returns a dictionary of the summary statistics rounded to two decimal places.
     
-    Args: 
+    Arguments: 
         items (list): list containing numerical values.
         
     Returns:
@@ -39,7 +39,7 @@ def five_num_summary(items):
     
     """Takes a list of items and returns a dictionary of the five number summary rounded to two decimal places.
     
-    Args: 
+    Arguments: 
         items (list): list containing numerical values.
         
     Returns:
