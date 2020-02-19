@@ -182,10 +182,14 @@ def stop_words_remover(df):
     A function that takes a pandas dataframe as an input, tokenises the
     sentences and removes all the stopwords in the input using a stop words
     dictionary and returns a modified version of the pandas dataframe
+    
+    Args:   
+        pandas DataFrame.
+    
+    Returns:
+        pandas DataFrame with removed stopwords.
     """
-    stop_words_dict = {
-    'stopwords':[
-        'where', 'done', 'if', 'before', 'll', 'very', 'keep', 'something', 'nothing', 'thereupon', 
+    stop_words_dict = {'stopwords':['where', 'done', 'if', 'before', 'll', 'very', 'keep', 'something', 'nothing', 'thereupon', 
         'may', 'why', 'â€™s', 'therefore', 'you', 'with', 'towards', 'make', 'really', 'few', 'former', 
         'during', 'mine', 'do', 'would', 'of', 'off', 'six', 'yourself', 'becoming', 'through', 
         'seeming', 'hence', 'us', 'anywhere', 'regarding', 'whole', 'down', 'seem', 'whereas', 'to', 
@@ -213,13 +217,11 @@ def stop_words_remover(df):
         'because', 'rather', 'using', 'without', 'throughout', 'on', 'she', 'never', 'eight', 'no', 'hereupon', 
         'them', 'whereafter', 'quite', 'which', 'move', 'thru', 'until', 'afterwards', 'fifty', 'i', 'itself', 'nâ€˜t',
         'him', 'could', 'front', 'within', 'â€˜re', 'back', 'such', 'already', 'several', 'side', 'whence', 'me', 
-        'same', 'were', 'it', 'every', 'third', 'together'
-    ]
-}
+        'same', 'were', 'it', 'every', 'third', 'together']}
     
     df['Without Stop Words'] = df['Tweets'].apply(str.lower).apply(str.split)
 
-    for i in range(len(twitter_df)):
+    for i in range(len(df)):
         df['Without Stop Words'][i] = [x for x in df['Without Stop Words'][i] if x not in stop_words_dict['stopwords']]
     return df
     pass
