@@ -1,11 +1,11 @@
 def dictionary_of_metrics(items):
     """Takes a list of items and returns a dictionary of the summary statistics"""
-    import numpy as np
+    import numpy
     n = len(items)
-    average = round(np.mean(items), 2)
-    median = round(np.median(items), 2)
-    variance = round((sum((items-np.mean(items))**2))/(n-1), 2)
-    standard_dev = round(((sum((items-np.mean(items))**2))/(n-1))**(1/2), 2)
+    average = round(numpy.mean(items), 2)
+    median = round(numpy.median(items), 2)
+    variance = round((sum((items-numpy.mean(items))**2))/(n-1), 2)
+    standard_dev = round(((sum((items-numpy.mean(items))**2))/(n-1))**(1/2), 2)
     minimum = round(min(items), 2)
     maximum = round(max(items), 2)
     
