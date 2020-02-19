@@ -35,7 +35,7 @@ def date_parser(dates):
     return([item.split()[0] for item in dates])
     pass
    
- def extract_municipality_hashtags(df):
+def extract_municipality_hashtags(df):
     """
     Takes in a pandas dataframe and returns a modified dataframe which 
     extracts the municipality from a tweet using the given dictonary and puts
