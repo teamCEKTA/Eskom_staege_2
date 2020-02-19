@@ -89,7 +89,6 @@ Examples of how to use the functions with their expected output:
    df = twitter_df
    
    	Tweets	                                             |     Date
-______________________________________________________________________________
 0	@BongaDlulane Please send an email to mediades...    |2019-11-29 12:50:54
 1	@saucy_mamiie Pls log a call on 0860037566	     |2019-11-29 12:46:53
 2	@BongaDlulane Query escalated to media desk.	     |2019-11-29 12:46:10
@@ -99,7 +98,6 @@ ______________________________________________________________________________
 expected outcome:
 
 	Tweets	                                          |  Date	        | municipality  |hashtags
-____________________________________________________________________________________________________________________________
 0	@BongaDlulane Please send an email to mediades... |2019-11-29 12:50:54	|NaN	        |NaN
 1	@saucy_mamiie Pls log a call on 0860037566	  |2019-11-29 12:46:53	|NaN	        |NaN
 2	@BongaDlulane Query escalated to media desk.	  |2019-11-29 12:46:10	|NaN	        |NaN
@@ -111,7 +109,6 @@ ________________________________________________________________________________
 df = twitter_df
 
       Tweets	                                                  |     Date
-______________________________________________________________________________
 0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
 1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 2	@BongaDlulane Query escalated to media desk.	          |2019-11-29 12:46:10
@@ -121,7 +118,6 @@ ______________________________________________________________________________
 expected outcome:
 
      Date       |Tweets
-____________________
 2019-11-20	|18
 2019-11-21	|11
 2019-11-22	|25
@@ -133,7 +129,6 @@ ____________________
 df = twitter_df
 
        Tweets	                                                  |     Date
-______________________________________________________________________________________
 0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
 1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 
@@ -141,7 +136,6 @@ ________________________________________________________________________________
 expected output:
 
 	Tweets	                              |   Date	            |       Without Stop Words	    |   Split Tweets
-_________________________________________________________________________________________________________________________________
 0	@BongaDlulane Please send an email... |2019-11-29 12:50:54  |[@bongadlulane, send, email,...|[@bongadlulane, please, send,...]
 1	@saucy_mamiie Pls log... 	      |2019-11-29 12:46:53  |[@saucy_mamiie, pls, ...]	    |[@saucy_mamiie, pls, log, a,...]
 
@@ -150,7 +144,6 @@ ________________________________________________________________________________
 df = twitter_df
 
     Tweets	                                                  |     Date
-______________________________________________________________________________________
 0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
 1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 
@@ -158,7 +151,6 @@ ________________________________________________________________________________
 expected outcome:
 
  	Tweets	                                          |Date	                |Without Stop Words
-________________________________________________________________________________________________________________________________
 0	@BongaDlulane Please send an email to mediades... |2019-11-29 12:50:54	|[@bongadlulane, send, email, mediadesk@eskom.c...]
 1	@saucy_mamiie Pls log a call on 0860037566	  |2019-11-29 12:46:53	|[@saucy_mamiie, pls, log, 0860037566]
 
