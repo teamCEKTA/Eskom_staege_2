@@ -56,7 +56,7 @@ def five_num_summary(items):
     
     import numpy as np
     
-    percentile = np.percentile(items, [0,25,50,75,100]) #A list of percentiles
+    percentile = np.percentile(items, [0,25,50,75,100]) #Create a list of desired percentiles
     minimum = round(percentile[0], 2)
     quartile_1 = round(percentile[1], 2)
     median = round(percentile[2], 2)
