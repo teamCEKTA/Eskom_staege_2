@@ -79,41 +79,48 @@ Examples of how to use the functions with their expected output:
                       'q3': 4.75}
  
 3. date_parser(dates)
+
   dates =  ['2019-11-29 12:50:54','2019-11-29 12:46:53', '2019-11-29 12:46:10']
   expected outcome: ['2019-11-29', '2019-11-29', '2019-11-29']
 
 
 4. extract_municipality_hashtags(df)
+
    df = twitter_df
-   	Tweets	                                              |     Date
+   
+   	Tweets	                                             |     Date
 ______________________________________________________________________________
-0	@BongaDlulane Please send an email to mediades...	      |2019-11-29 12:50:54
-1	@saucy_mamiie Pls log a call on 0860037566	            |2019-11-29 12:46:53
-2	@BongaDlulane Query escalated to media desk.	          |2019-11-29 12:46:10
-3	Before leaving the office this afternoon, head...	      |2019-11-29 12:33:36
-4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	      |2019-11-29 12:17:43
+0	@BongaDlulane Please send an email to mediades...    |2019-11-29 12:50:54
+1	@saucy_mamiie Pls log a call on 0860037566	     |2019-11-29 12:46:53
+2	@BongaDlulane Query escalated to media desk.	     |2019-11-29 12:46:10
+3	Before leaving the office this afternoon, head...    |2019-11-29 12:33:36
+4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...    |2019-11-29 12:17:43
 
 expected outcome:
-	Tweets	                                          |  Date	              | municipality |hashtags
+
+	Tweets	                                          |  Date	        | municipality  |hashtags
 ____________________________________________________________________________________________________________________________
-0	@BongaDlulane Please send an email to mediades...	|2019-11-29 12:50:54	|NaN	         |NaN
-1	@saucy_mamiie Pls log a call on 0860037566	      |2019-11-29 12:46:53	|NaN	         |NaN
-2	@BongaDlulane Query escalated to media desk.	    |2019-11-29 12:46:10	|NaN	         |NaN
-3	Before leaving the office this afternoon, head...	|2019-11-29 12:33:36	|NaN	         |NaN
-4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	|2019-11-29 12:17:43	|NaN	         |[#eskomfreestate, #mediastatement]
+0	@BongaDlulane Please send an email to mediades... |2019-11-29 12:50:54	|NaN	        |NaN
+1	@saucy_mamiie Pls log a call on 0860037566	  |2019-11-29 12:46:53	|NaN	        |NaN
+2	@BongaDlulane Query escalated to media desk.	  |2019-11-29 12:46:10	|NaN	        |NaN
+3	Before leaving the office this afternoon, head... |2019-11-29 12:33:36	|NaN	        |NaN
+4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN... |2019-11-29 12:17:43	|NaN	        |[#eskomfreestate, #mediastatement]
 
 5. number_of_tweets_per_day(df)
+
 df = twitter_df
-Tweets	                                                  |     Date
+
+      Tweets	                                                  |     Date
 ______________________________________________________________________________
-0	@BongaDlulane Please send an email to mediades...	      |2019-11-29 12:50:54
-1	@saucy_mamiie Pls log a call on 0860037566	            |2019-11-29 12:46:53
+0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
+1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 2	@BongaDlulane Query escalated to media desk.	          |2019-11-29 12:46:10
-3	Before leaving the office this afternoon, head...	      |2019-11-29 12:33:36
-4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	      |2019-11-29 12:17:43
+3	Before leaving the office this afternoon, head...	  |2019-11-29 12:33:36
+4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	  |2019-11-29 12:17:43
 
 expected outcome:
-Date	      |Tweets
+
+     Date       |Tweets
 ____________________
 2019-11-20	|18
 2019-11-21	|11
@@ -124,33 +131,40 @@ ____________________
 6. word_splitter(df)
 
 df = twitter_df
-Tweets	                                                  |     Date
-______________________________________________________________________________
-0	@BongaDlulane Please send an email to mediades...	      |2019-11-29 12:50:54
-1	@saucy_mamiie Pls log a call on 0860037566	            |2019-11-29 12:46:53
+
+       Tweets	                                                  |     Date
+______________________________________________________________________________________
+0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
+1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 
 
 expected output:
-	Tweets	                              |   Date	            |       Without Stop Words	     |   Split Tweets
+
+	Tweets	                              |   Date	            |       Without Stop Words	    |   Split Tweets
 _________________________________________________________________________________________________________________________________
-0	@BongaDlulane Please send an email...	|2019-11-29 12:50:54	|[@bongadlulane, send, email,... |[@bongadlulane, please, send,...]
-1	@saucy_mamiie Pls log... 	            |2019-11-29 12:46:53	|[@saucy_mamiie, pls, ...]	     |[@saucy_mamiie, pls, log, a,...]
+0	@BongaDlulane Please send an email... |2019-11-29 12:50:54  |[@bongadlulane, send, email,...|[@bongadlulane, please, send,...]
+1	@saucy_mamiie Pls log... 	      |2019-11-29 12:46:53  |[@saucy_mamiie, pls, ...]	    |[@saucy_mamiie, pls, log, a,...]
 
 7.stop_words_remover(df)
+
 df = twitter_df
-Tweets	                                                  |     Date
-______________________________________________________________________________
-0	@BongaDlulane Please send an email to mediades...	      |2019-11-29 12:50:54
-1	@saucy_mamiie Pls log a call on 0860037566	            |2019-11-29 12:46:53
+
+    Tweets	                                                  |     Date
+______________________________________________________________________________________
+0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
+1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 
 
 expected outcome:
-	Tweets	                                          |Date	                |Without Stop Words
+
+ 	Tweets	                                          |Date	                |Without Stop Words
 ________________________________________________________________________________________________________________________________
-0	@BongaDlulane Please send an email to mediades...	|2019-11-29 12:50:54	|[@bongadlulane, send, email, mediadesk@eskom.c...]
-1	@saucy_mamiie Pls log a call on 0860037566	      |2019-11-29 12:46:53	|[@saucy_mamiie, pls, log, 0860037566]
+0	@BongaDlulane Please send an email to mediades... |2019-11-29 12:50:54	|[@bongadlulane, send, email, mediadesk@eskom.c...]
+1	@saucy_mamiie Pls log a call on 0860037566	  |2019-11-29 12:46:53	|[@saucy_mamiie, pls, log, 0860037566]
 
 Support:
+---------
+
 For more information and additional support:
 email {amogelang1996@gmail.com,
        eltonmaepa7@gmail.com,
@@ -160,6 +174,8 @@ email {amogelang1996@gmail.com,
 
 
 Authors and acknowledgment
+---------------------------
+
 This package was created by 5 aspiring Data Scientists;
 Amogelang Mpyatona
 Charity Mthethwa
