@@ -1,5 +1,3 @@
-import numpy as np
-import pandas as pd
 def dictionary_of_metrics(items):
     """Takes a list of items and returns a dictionary of the summary statistics"""
     
@@ -15,6 +13,8 @@ def dictionary_of_metrics(items):
     pass
 
 def five_num_summary(items):
+    import numpy as np
+    import pandas as pd
     """Takes a list of items and returns a dictionary of the five number summary"""
     
     percentile = np.percentile(items, [0,25,50,75,100]) #A list of percentiles
