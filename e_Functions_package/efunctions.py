@@ -1,3 +1,5 @@
+import numpy as np
+import pandas as pd
 def dictionary_of_metrics(items):
     """Takes a list of items and returns a dictionary of the summary statistics"""
     
