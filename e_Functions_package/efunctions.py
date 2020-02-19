@@ -31,6 +31,12 @@ def date_parser(dates):
     """
     Takes a list of datetime strings and converts it into a list of strings
     with only the date
+
+    Args:
+        dates(list): list with DATETIMEs
+
+    Returns:
+        date(list): a list containing a string of DATEs from the DATETIME in the 'yyyy-mm-dd' format 
      """
 
     #splitting the dates(containing datetime data) list and returning only the datetime
@@ -39,16 +45,20 @@ def date_parser(dates):
    
 def extract_municipality_hashtags(df):
     """
-    Takes in a pandas dataframe and returns a modified dataframe which 
-    extracts the municipality from a tweet using the given dictonary and puts
-    them into a new column. It also returns the hashtags from a tweet and
-    outputs them into a new column in the same dataframe.The tweets which
-    don't have either a municipality or a hashtag, are filled with np.nan.
-    The column headers of the new columns are "municipality" & "hashtags"
-    respectively.
+    Extracts the municipalities and hashtags within given tweets
+
+    Args:
+        df(dataframe): dataframe with tweets data
+    
+    Returns(dataframe): dataframe with 2 new columns, 'municipality' and 'hashtag'
+                        'municipality' returns the municipality from a tweet using the given dictonary
+                        'hashtag' returns the hashtags from a tweet
+                        if no municipality or hashtag is found in the tweets, a nan is returned
     """
+
     import numpy as np
     import pandas as pd
+
     #creating 'hashtag' and 'municipality' columns with zeros to later replace the zero's
     df['municipality'] = 0
     df['hashtags'] = 0
@@ -73,13 +83,23 @@ def extract_municipality_hashtags(df):
             df['hashtags'][index] = np.nan
             
     return df
+    pass
   
 def number_of_tweets_per_day(df):
     """ 
-    A function that takes a pandas dataframe as an input and returns a new
-    dataframe that is grouped by date, with the number of tweets for each day
+    Calculates the number of tweets per date
+    
+    Args:
+        df(dataframe): dataframe with twitter data
+    
+    Returns:
+        dataframe: dataframe with columns Date and Tweets.
+                   Date column is grouped by Date.
+                   Tweets column is total number of tweets per Date
     """
     
+    import pandas as pd    
+
     df['Date'] = pd.to_datetime(df['Date']) #converts date column to datetime
     df['Date'] = df['Date'].dt.date #extract only the date part of the datetime in the date column                         
     twitter_cnt=df.groupby('Date').count() #group the dataframe by unique dates and calculate the number of tweets in each day
@@ -87,6 +107,7 @@ def number_of_tweets_per_day(df):
     twitter_cnt.set_index('Date', inplace = True)  #set date column as index 
     
     return twitter_cnt
+    pass
 
 def word_splitter(df):
     """
@@ -108,6 +129,7 @@ def word_splitter(df):
     df = df.drop('temp_column', 1) #delete temporal column
 
     return df
+    pass
 
 def stop_words_remover(df):
     """ 
