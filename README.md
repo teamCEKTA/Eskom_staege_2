@@ -116,63 +116,65 @@ expected outcome:
 
 df = twitter_df
 
-      Tweets	                                                       Date
-0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
+      Tweets	                                                       		Date
+	0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
 
-1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
+	1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 
-2	@BongaDlulane Query escalated to media desk.	          |2019-11-29 12:46:10
+	2	@BongaDlulane Query escalated to media desk.	          |2019-11-29 12:46:10
 
-3	Before leaving the office this afternoon, head...	  |2019-11-29 12:33:36
+	3	Before leaving the office this afternoon, head...	  |2019-11-29 12:33:36
 
-4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	  |2019-11-29 12:17:43
+	4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	  |2019-11-29 12:17:43
 
 expected outcome:
 
-     Date        Tweets
-2019-11-20	|18
+     Date       	 Tweets
+	2019-11-20	|18
 
-2019-11-21	|11
+	2019-11-21	|11
 
-2019-11-22	|25
+	2019-11-22	|25
 
-2019-11-23	|19
+	2019-11-23	|19
 
-2019-11-24	|14
+	2019-11-24	|14
+	
 
 6. word_splitter(df)
 
 df = twitter_df
 
-       Tweets	                                                        Date
-0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
+       Tweets	                                                       		 Date
+	0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
 
-1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
+	1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 
 
 expected output:
 
-	Tweets	                                  Date	                    Without Stop Words	       Split Tweets
-0	@BongaDlulane Please send an email... |2019-11-29 12:50:54  |[@bongadlulane, send, email,...|[@bongadlulane, please, send,...]
+	Tweets	                                  	Date	                    Without Stop Words	       Split Tweets
+	0	@BongaDlulane Please send an email... |2019-11-29 12:50:54  |[@bongadlulane, send, email,...|[@bongadlulane, please, send,...]
 
-1	@saucy_mamiie Pls log... 	      |2019-11-29 12:46:53  |[@saucy_mamiie, pls, ...]	    |[@saucy_mamiie, pls, log, a,...]
+	1	@saucy_mamiie Pls log... 	      |2019-11-29 12:46:53  |[@saucy_mamiie, pls, ...]	    |[@saucy_mamiie, pls, log, a,...]
+
 
 7.stop_words_remover(df)
 
 df = twitter_df
 
-    Tweets	                                                       Date
-0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
+    Tweets	                                                       		Date
+	0	@BongaDlulane Please send an email to mediades...	  |2019-11-29 12:50:54
 
-1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
+	1	@saucy_mamiie Pls log a call on 0860037566	          |2019-11-29 12:46:53
 
 
 expected outcome:
 
  	Tweets	                                            Date	            Without Stop Words
-0	@BongaDlulane Please send an email to mediades... |2019-11-29 12:50:54	|[@bongadlulane, send, email, mediadesk@eskom.c...]
+	0	@BongaDlulane Please send an email to mediades... |2019-11-29 12:50:54	|[@bongadlulane, send, email, mediadesk@eskom.c...]
 
-1	@saucy_mamiie Pls log a call on 0860037566	  |2019-11-29 12:46:53	|[@saucy_mamiie, pls, log, 0860037566]
+	1	@saucy_mamiie Pls log a call on 0860037566	  |2019-11-29 12:46:53	|[@saucy_mamiie, pls, log, 0860037566]
 
 Support:
 ---------
