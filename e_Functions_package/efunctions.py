@@ -1,8 +1,8 @@
 def dictionary_of_metrics(items):
+    """
+    Takes a list of items and returns a dictionary of the summary statistics rounded to two decimal places.
     
-    """Takes a list of items and returns a dictionary of the summary statistics rounded to two decimal places.
-    
-    Arguments: 
+    Args: 
         items (list): list containing numerical values.
         
     Returns:
@@ -35,11 +35,11 @@ def dictionary_of_metrics(items):
             'max':maximum}
     pass
 
-def five_num_summary(items):
+def five_num_summary(items): 
+    """
+    Takes a list of items and returns a dictionary of the five number summary rounded to two decimal places.
     
-    """Takes a list of items and returns a dictionary of the five number summary rounded to two decimal places.
-    
-    Arguments: 
+    Args: 
         items (list): list containing numerical values.
         
     Returns:
