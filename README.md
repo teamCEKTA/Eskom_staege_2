@@ -89,6 +89,7 @@ Examples of how to use the functions with their expected output:
    df = twitter_df
    
    			Tweets	                                               		 Date
+		---------------------------------------------------------------------------------
 		0	@BongaDlulane Please send an email to mediades...    |2019-11-29 12:50:54
 		1	@saucy_mamiie Pls log a call on 0860037566	     |2019-11-29 12:46:53
 		2	@BongaDlulane Query escalated to media desk.	     |2019-11-29 12:46:10
