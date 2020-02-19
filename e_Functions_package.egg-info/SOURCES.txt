@@ -1,9 +1,0 @@
-README.md
-setup.py
-e_Functions_package/__init__.py
-e_Functions_package/efunctions.py
-e_Functions_package.egg-info/PKG-INFO
-e_Functions_package.egg-info/SOURCES.txt
-e_Functions_package.egg-info/dependency_links.txt
-e_Functions_package.egg-info/requires.txt
-e_Functions_package.egg-info/top_level.txt
