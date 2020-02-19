@@ -1,0 +1,20 @@
+Metadata-Version: 1.0
+Name: e-Functions-package
+Version: 0.1
+Summary: Team2_Functions
+Home-page: https://github.com/teamCEKTA/Eskom_staege_2
+Author: Team_2
+Author-email: keithtakarinda@!gmail.com
+License: MIT
+Description: #mypackage
+        This library is made to handle data inputs
+        
+        ##building this package locally
+        'python setup.py sdist'
+        
+        ##installing this package from Github
+        'pip install git+https://github.com/teamCEKTA/Eskom_staege_2.git'
+        
+        ##updating this package from Github
+        'pip install --upgrade git+https://github.com/teamCEKTA/Eskom_staege_2.git'
+Platform: UNKNOWN
