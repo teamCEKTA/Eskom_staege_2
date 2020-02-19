@@ -95,6 +95,7 @@ def word_splitter(df):
     a new "Split Tweets" column. This new column contains the tweets as a list
     of separate words and all words are lowercase
     """
+    import pandas as pd
  
     df['temp_column']= df['Tweets'].str.lower() #temporary column that contains the tweets in lowercase
     df['Split Tweets']= df['temp_column'].str.rsplit() #splitting the words of temporal column into a new column 'Split tweets'
