@@ -1,5 +1,23 @@
 def dictionary_of_metrics(items):
-    """Takes a list of items and returns a dictionary of the summary statistics"""
+    
+    """Takes a list of items and returns a dictionary of the summary statistics rounded to two decimal places.
+    
+    Args: 
+        items (list): list containing numerical values.
+        
+    Returns:
+         dictionary: containing mean, median, variance, standard deviation, minimum and maximum rounded to two decimal places.
+         
+    Examples:
+         >>> dictionary_of_metrics([1, 8, 3, 2, 7, 4, 9])
+             {'mean': 4.86,
+             'median': 4.0,
+             'var': 9.81,
+             'std': 3.13,
+             'min': 1,
+             'max': 9}
+    """
+    
     import numpy as np
     n = len(items)
     average = round(np.mean(items), 2)
@@ -9,12 +27,33 @@ def dictionary_of_metrics(items):
     minimum = round(min(items), 2)
     maximum = round(max(items), 2)
     
-    return {'mean':average,'median':median,'var':variance,'std':standard_dev,'min':minimum,'max':maximum}
+    return {'mean':average,
+            'median':median,
+            'var':variance,
+            'std':standard_dev,
+            'min':minimum,
+            'max':maximum}
     pass
 
 def five_num_summary(items):
     
-    """Takes a list of items and returns a dictionary of the five number summary"""
+    """Takes a list of items and returns a dictionary of the five number summary rounded to two decimal places.
+    
+    Args: 
+        items (list): list containing numerical values.
+        
+    Returns:
+         dictionary: containing percentiles - maximum, median, minimum, lower quartile and upper quartile rounded to two decimal places.
+         
+    Examples:
+         >>> five_num_summary([1, 8, 3, 2, 7, 4, 9])
+             {'max': 9.0,
+             'median': 4.0,
+             'min': 1.0,
+             'q1': 2.5,
+             'q3': 7.5}
+    """
+    
     import numpy as np
     
     percentile = np.percentile(items, [0,25,50,75,100]) #A list of percentiles
