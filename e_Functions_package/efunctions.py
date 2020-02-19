@@ -90,10 +90,16 @@ def number_of_tweets_per_day(df):
 
 def word_splitter(df):
     """
-    This function takes in a twitter database.The database originally has 
-    two column ,a 'Tweets' and 'Date' column, and returns the database with
-    a new "Split Tweets" column. This new column contains the tweets as a list
-    of separate words and all words are lowercase
+    Takes in pandas DataFrame.DataFrame should contain a column, named 'Tweets'.
+    Function Splits the sentences in a dataframe's column 'Tweets' into a list of the separate words
+    where all the words are lowercase.
+    The list is placed in a new column named 'Split Tweets' in the original dataframe
+    
+    Args:   
+        pandas DataFrame with two columns.
+    Returns:
+        pandas DataFrame with three columns.
+    
     """
     import pandas as pd
  
